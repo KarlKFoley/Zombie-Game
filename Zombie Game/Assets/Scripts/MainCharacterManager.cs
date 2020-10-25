@@ -50,6 +50,8 @@ public class MainCharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameInfo.tutorialComplete)
+        {
             //player Movment
             movePlayer(speed);
             handleJumpAndFall();
@@ -101,6 +103,62 @@ public class MainCharacterManager : MonoBehaviour
             {
 
             }
+        }
+        else // need the controller
+        {
+            //player Movment
+            movePlayer(speed);
+            handleJumpAndFall();
+
+            //Right player Movement
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                speed = speedX;
+            }
+
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                if (!Input.GetKey(KeyCode.A))
+                {
+                    speed = 0;
+                }
+            }
+
+            //Left player Movment
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                speed = -speedX;
+            }
+
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                if (!Input.GetKey(KeyCode.D))
+                {
+                    speed = 0;
+                }
+            }
+
+
+            //Player jump
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Jump();
+            }
+
+
+            //shooting
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                fire();
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+            }
+
+        }
     }
 
     /// <summary>

@@ -5396,7 +5396,7 @@ MonoBehaviour:
   playerAudio:
     playerShoots: {fileID: 8300000, guid: 899b5ef4de8ed7c439ee075e6aa61f9a, type: 3}
     playerjumps: {fileID: 8300000, guid: cc4cca1561e07894b89939622d552ecb, type: 3}
-    zombieSound: {fileID: 8300000, guid: f0d570af4f952104eab05514d06d7a11, type: 3}
+    zombieSound: {fileID: 8300000, guid: fd5cea2b23469ad4ba21f9624ed776ba, type: 3}
   player: {fileID: 1366551458}
   soundOn: 1
 --- !u!1001 &1565373642

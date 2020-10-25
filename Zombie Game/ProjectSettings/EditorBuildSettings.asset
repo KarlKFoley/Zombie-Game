@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Level_Complete.unity
     guid: d25028a4af6848f49b92c0164ff1497b
+  - enabled: 1
+    path: Assets/_Scenes/Intro.unity
+    guid: 4db6e52a5ed1d4b4ea456dc8539ffcda
+  - enabled: 1
+    path: Assets/_Scenes/Turotial.unity
+    guid: 9eeb686e853004644ac2b3acde337aa1
   m_configObjects: {}
