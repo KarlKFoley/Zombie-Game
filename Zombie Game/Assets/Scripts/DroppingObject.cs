@@ -18,12 +18,31 @@ public class DroppingObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "GROUND":
+                rb.isKinematic = true;
+                break;
+            case "Enemy":
+                break;
+            default:
+                break;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Feet"))
+        switch (collision.gameObject.tag)
         {
-            Invoke("Drop", droppingDelay);
+            case "Feet":
+                Invoke("Drop", droppingDelay);
+                break;
+            default:
+                break;
         }
+        
     }
 
     private void Drop()

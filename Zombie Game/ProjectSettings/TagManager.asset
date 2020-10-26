@@ -15,6 +15,7 @@ TagManager:
   - Head
   - Back
   - Dead
+  - Falling
   layers:
   - Default
   - TransparentFX
@@ -25,13 +26,13 @@ TagManager:
   - 
   - 
   - Ground
+  - Falling
   - Collectibles
   - Enemies
   - Dead
   - Player
-  - 
-  - 
-  - 
+  - Civilian
+  - Head
   - 
   - 
   - 

@@ -19,7 +19,7 @@ public class FeetCtrl : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("GROUND"))
+        if (collision.gameObject.CompareTag("GROUND")|| collision.gameObject.CompareTag("Falling"))
         {
             player.jumping = false;
         }

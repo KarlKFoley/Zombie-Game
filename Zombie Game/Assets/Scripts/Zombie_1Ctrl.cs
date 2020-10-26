@@ -27,7 +27,6 @@ public class Zombie_1Ctrl : MonoBehaviour
     private Animator anim;
     private Collider2D Coll;
     public new GameObject gameObject;
-    private bool facingLeft;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +38,6 @@ public class Zombie_1Ctrl : MonoBehaviour
         attackDelay = 2;
         deathDelay = 2;
         dead = false;
-        facingLeft = true;
         SetStartingDirection();
     }
 
@@ -124,7 +122,6 @@ public class Zombie_1Ctrl : MonoBehaviour
                 FlipOnCollision(); // used to changed directions when zombie hits a obstical
                 break;
             case "Bullet":
-                gameObject.layer = LayerMask.NameToLayer("Dead");
                 GameCtrl.instance.UpdateKills(killBonus);
                 ZombieDeath();
                 break;
@@ -195,8 +192,9 @@ public class Zombie_1Ctrl : MonoBehaviour
     /// <summary>
     /// Methord controls zombies death animation 
     /// </summary>
-    void ZombieDeath()
+    public void ZombieDeath()
     {
+        gameObject.layer = LayerMask.NameToLayer("Dead");
         dead = true;
         Destroy(Coll);
         anim.SetInteger("state", 2);

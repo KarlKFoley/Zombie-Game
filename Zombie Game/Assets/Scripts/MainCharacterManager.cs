@@ -246,11 +246,12 @@ public class MainCharacterManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.layer);
         switch (other.gameObject.tag) { 
             case "GROUND":
-                isGrounded = true;
-                anim.SetInteger("state", 0);
+                hittheGround();
+                break;
+            case "Falling":
+                hittheGround();
                 break;
             case "Enemy":
                 break;
@@ -297,6 +298,13 @@ public class MainCharacterManager : MonoBehaviour
             anim.SetInteger("state", 3);
             AudioCtrl.instance.Jump(gameObject.transform.position);
         }
+    }
+
+    void hittheGround()
+    {
+        isGrounded = true;
+        anim.SetInteger("state", 0);
+
     }
 
     /// <summary>
