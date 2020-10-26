@@ -14,6 +14,7 @@ public class Zombie_1Ctrl : MonoBehaviour
     //Variable Declaracation for public variables
     public float speedX;
     public Transform leftEdge, rightEdge;
+    public Collider2D zombieSeachArea;
 
     //Variable Declaracation for private variables
     private const int killBonus = 10;
@@ -25,6 +26,8 @@ public class Zombie_1Ctrl : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     private Collider2D Coll;
+    public new GameObject gameObject;
+    private bool facingLeft;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class Zombie_1Ctrl : MonoBehaviour
         attackDelay = 2;
         deathDelay = 2;
         dead = false;
+        facingLeft = true;
         SetStartingDirection();
     }
 
@@ -68,26 +72,18 @@ public class Zombie_1Ctrl : MonoBehaviour
     /// <param name="playerDirection"></param>
     void FlipOnEdge(float playerDirection)
     {
-        //bug in code playerSpotted isnt being trip so zombies do not head towards player when they enter their each zone
-        if (sr.flipX && transform.position.x >= rightEdge.position.x || sr.flipX && playerSpotted && playerDirection < 0)
+
+        
+        if (sr.flipX && transform.position.x >= rightEdge.position.x)
         {
             sr.flipX = false;
             speedX = -speedX;
-
-            if(transform.position.x < rightEdge.position.x+10) // triggering but pllayerspotted is always false
-            {
-                playerSpotted = false;
-            }
         }
-        else if (!sr.flipX && transform.position.x <= leftEdge.position.x || !sr.flipX && playerSpotted && playerDirection > 0)
+        else if (!sr.flipX && transform.position.x <= leftEdge.position.x )
         {
             sr.flipX = true;
             speedX = -speedX;
 
-            if (transform.position.x > rightEdge.position.x-10) // triggering but pllayerspotted is always false
-            {
-                playerSpotted = false;
-            }
         }
     }
 
@@ -128,6 +124,7 @@ public class Zombie_1Ctrl : MonoBehaviour
                 FlipOnCollision(); // used to changed directions when zombie hits a obstical
                 break;
             case "Bullet":
+                gameObject.layer = LayerMask.NameToLayer("Dead");
                 GameCtrl.instance.UpdateKills(killBonus);
                 ZombieDeath();
                 break;
@@ -147,9 +144,12 @@ public class Zombie_1Ctrl : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Player":
-                Vector2 temp = transform.position;
-                temp.x = temp.x - collision.gameObject.transform.position.x;
-                FlipOnEdge(temp.x);
+                if (!dead)
+                {
+                    Vector2 temp = transform.position;
+                    temp.x = temp.x - collision.gameObject.transform.position.x;
+                    FlipOnEdge(temp.x);
+                }
                 break;
         }
     }
@@ -184,11 +184,11 @@ public class Zombie_1Ctrl : MonoBehaviour
     {
         if (sr.flipX)
         {
-            speedX = -2;
+            speedX = 2;
         }
         else
         {
-            speedX = 2;
+            speedX = -2;
         }
     }
 
@@ -198,7 +198,7 @@ public class Zombie_1Ctrl : MonoBehaviour
     void ZombieDeath()
     {
         dead = true;
-        Destroy(Coll); // lets zombie fall need to move childern of this colider to another layer
+        Destroy(Coll);
         anim.SetInteger("state", 2);
         speedX = 0;
         Invoke("RemoveZombie", deathDelay);
@@ -216,8 +216,8 @@ public class Zombie_1Ctrl : MonoBehaviour
     /// <param name="objects"></param>
     void PushBack(Collision2D objects)
     {
-        Debug.Log(gameObject.tag);
         Vector2 dir = objects.gameObject.transform.position - transform.position;
+        Debug.Log(dir);
         if (sr.flipX)
         {
             Debug.Log(gameObject.tag);

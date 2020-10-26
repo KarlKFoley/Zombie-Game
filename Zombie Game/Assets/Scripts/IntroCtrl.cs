@@ -75,7 +75,6 @@ public class IntroCtrl : MonoBehaviour
                 SceneManager.LoadScene(4);
                 break;
             default:
-                Debug.Log("fuck");
                 break;
         }
         textController--;

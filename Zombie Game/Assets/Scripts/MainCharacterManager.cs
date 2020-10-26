@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEditor;
@@ -245,6 +246,7 @@ public class MainCharacterManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log(other.gameObject.layer);
         switch (other.gameObject.tag) { 
             case "GROUND":
                 isGrounded = true;

@@ -20,6 +20,7 @@ public class GameCtrl : MonoBehaviour
     public float delayRespawn;
     public UI ui;
 
+
     //Variable Declaracation for private variables
     private const float startingTime = 30;
     private const int StartingShields = 4;
