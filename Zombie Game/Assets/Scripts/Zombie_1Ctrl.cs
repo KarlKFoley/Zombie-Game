@@ -14,30 +14,33 @@ public class Zombie_1Ctrl : MonoBehaviour
     //Variable Declaracation for public variables
     public float speedX;
     public Transform leftEdge, rightEdge;
-    public Collider2D zombieSeachArea;
+
 
     //Variable Declaracation for private variables
     private const int killBonus = 10;
     private float deathDelay;
-    private bool dead;
+    public bool dead;
     private float attackDelay;
-    private bool playerSpotted;
+    public bool playerSpotted;
     private Rigidbody2D rb;
-    private SpriteRenderer sr;
+    private SpriteRenderer srFacingRight;
     private Animator anim;
     private Collider2D Coll;
     public new GameObject gameObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
         //assiging vairbles for use when called on
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        srFacingRight = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         Coll = GetComponent<Collider2D>();
         attackDelay = 2;
         deathDelay = 2;
         dead = false;
+        playerSpotted = false;
         SetStartingDirection();
     }
 
@@ -68,20 +71,60 @@ public class Zombie_1Ctrl : MonoBehaviour
     /// will be used when collision issue is fixed with player to chase the player
     /// </summary>
     /// <param name="playerDirection"></param>
-    void FlipOnEdge(float playerDirection)
+    public void FlipOnEdge(float playerDirection)
     {
-
-        
-        if (sr.flipX && transform.position.x >= rightEdge.position.x)
+        if (GameCtrl.instance.GetTimeLeft() > 0)
         {
-            sr.flipX = false;
-            speedX = -speedX;
+            if (srFacingRight.flipX && transform.position.x >= rightEdge.position.x || playerSpotted && playerDirection > 0 && srFacingRight.flipX)
+            {
+
+                srFacingRight.flipX = false;
+                speedX = -speedX;
+                if (playerSpotted)
+                {
+                    playerSpotted = false;
+                }
+            }
+            else if (!srFacingRight.flipX && transform.position.x <= leftEdge.position.x || playerSpotted && playerDirection < 0 && !srFacingRight.flipX)
+            {
+                Debug.Log(playerSpotted);
+                srFacingRight.flipX = true;
+                speedX = -speedX;
+                if (playerSpotted)
+                {
+                    playerSpotted = false;
+                }
+
+            }
         }
-        else if (!sr.flipX && transform.position.x <= leftEdge.position.x )
+        else
         {
-            sr.flipX = true;
-            speedX = -speedX;
+            //Vector2 temp = transform.position;
+            //temp.x = temp.x - GameObject.FindGameObjectsWithTag("Player").[0].transfor;
+            //playerDirection = temp.x;
+            if ( playerDirection > 0 && srFacingRight.flipX)
+            {
 
+                srFacingRight.flipX = false;
+                speedX = -speedX;
+                if (playerSpotted)
+                {
+                    playerSpotted = false;
+                }
+            }
+            else if (playerDirection < 0 && !srFacingRight.flipX)
+            {
+                Debug.Log(playerSpotted);
+                Debug.Log(playerDirection);
+                Debug.Log(srFacingRight.flipX);
+                srFacingRight.flipX = true;
+                speedX = -speedX;
+                if (playerSpotted)
+                {
+                    playerSpotted = false;
+                }
+
+            }
         }
     }
 
@@ -93,11 +136,11 @@ public class Zombie_1Ctrl : MonoBehaviour
     {
         if (speedX > 0)
         {
-            sr.flipX = true;
+            srFacingRight.flipX = true;
         }
         else if (speedX < 0)
         {
-            sr.flipX = false;
+            srFacingRight.flipX = false;
         }
     }
 
@@ -132,23 +175,10 @@ public class Zombie_1Ctrl : MonoBehaviour
 
     /// <summary>
     /// Used when a trigger collision accures.
-    /// Implmentation bugged -  collision tigger isn't happening
     /// </summary>
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //BUG - having the zombie chase the player when it enters their zone - issue with Tags
-        switch (collision.gameObject.tag)
-        {
-            case "Player":
-                if (!dead)
-                {
-                    Vector2 temp = transform.position;
-                    temp.x = temp.x - collision.gameObject.transform.position.x;
-                    FlipOnEdge(temp.x);
-                }
-                break;
-        }
     }
 
     /// <summary>
@@ -179,7 +209,7 @@ public class Zombie_1Ctrl : MonoBehaviour
 
     void moveAgain()
     {
-        if (sr.flipX)
+        if (srFacingRight.flipX)
         {
             speedX = 2;
         }
@@ -209,14 +239,13 @@ public class Zombie_1Ctrl : MonoBehaviour
 
     /// <summary>
     /// When player comes into contact with the zombie the zombie is pused back by the players shield
-    /// possible bug when zmobies collid because of this methord - further testing needed.
     /// </summary>
     /// <param name="objects"></param>
     void PushBack(Collision2D objects)
     {
         Vector2 dir = objects.gameObject.transform.position - transform.position;
         Debug.Log(dir);
-        if (sr.flipX)
+        if (dir.x > 0f)
         {
             Debug.Log(gameObject.tag);
             dir.x = -5000;

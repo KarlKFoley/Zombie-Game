@@ -22,7 +22,7 @@ public class GameCtrl : MonoBehaviour
 
 
     //Variable Declaracation for private variables
-    private const float startingTime = 30;
+    private const float startingTime = 120;
     private const int StartingShields = 4;
     private float timeLeft;
     private void Awake()
@@ -246,4 +246,9 @@ public class GameCtrl : MonoBehaviour
     {
         return GameInfo.CivilianCount;
     }
+
+    public float GetTimeLeft()
+    {
+        return timeLeft;
+    } 
 }

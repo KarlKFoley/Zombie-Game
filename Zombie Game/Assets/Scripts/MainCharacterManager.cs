@@ -208,7 +208,6 @@ public class MainCharacterManager : MonoBehaviour
 
     /// <summary>
     /// handles the falling animation
-    /// Bug identified during testing need to stop player from running and falling at the same time.
     /// </summary>
     void handleJumpAndFall()
     {

@@ -104,6 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6630337141675653671}
   - component: {fileID: 6630337141675653670}
+  - component: {fileID: 523633265308583690}
   m_Layer: 10
   m_Name: Player has Entered
   m_TagString: Untagged
@@ -151,6 +152,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &523633265308583690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630337141675653672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f5226f05047114db942fe52af5c98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie: {fileID: 6630337140811190932}
 --- !u!1001 &3312766869245927630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,6 +187,11 @@ PrefabInstance:
       propertyPath: rightEdge
       value: 
       objectReference: {fileID: 6630337140395945073}
+    - target: {fileID: 8213157702574502490, guid: 6e50fcc5217993140a5feffbd2c514e8,
+        type: 3}
+      propertyPath: zombieSeachArea
+      value: 
+      objectReference: {fileID: 6630337141675653670}
     - target: {fileID: 8213157702574502491, guid: 6e50fcc5217993140a5feffbd2c514e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -236,3 +255,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3312766869245927630}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6630337140811190932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8213157702574502490, guid: 6e50fcc5217993140a5feffbd2c514e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3312766869245927630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d98c7dee57d754daf00473f7ea7d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
