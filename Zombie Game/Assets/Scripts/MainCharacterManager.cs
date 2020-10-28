@@ -29,6 +29,7 @@ public class MainCharacterManager : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private Transform firePos;
+    public Transform MeleePos;
     private const int ShootingPower = 2;
     private const int RespawnPower = 5;
     private const int OrbPower = 5;
@@ -59,8 +60,9 @@ public class MainCharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameInfo.tutorialComplete)
-        {
+        Debug.Log(GameInfo.tutorialComplete);
+        //if (GameInfo.tutorialComplete)
+        //{
             //player Movment
             movePlayer(speed);
             handleJumpAndFall();
@@ -104,7 +106,7 @@ public class MainCharacterManager : MonoBehaviour
             //shooting
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                fire();
+            MeleeAttack();
             }
 
 
@@ -112,62 +114,17 @@ public class MainCharacterManager : MonoBehaviour
             {
 
             }
-        }
-        else // need the controller
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            //player Movment
-            movePlayer(speed);
-            handleJumpAndFall();
-
-            //Right player Movement
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                speed = speedX;
-            }
-
-            if (Input.GetKeyUp(KeyCode.D))
-            {
-                if (!Input.GetKey(KeyCode.A))
-                {
-                    speed = 0;
-                }
-            }
-
-            //Left player Movment
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                speed = -speedX;
-            }
-
-            if (Input.GetKeyUp(KeyCode.A))
-            {
-                if (!Input.GetKey(KeyCode.D))
-                {
-                    speed = 0;
-                }
-            }
+            fire();
+        }
 
 
-            //Player jump
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                Jump();
-            }
-
-
-            //shooting
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                fire();
-            }
-
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-
-            }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
 
         }
+        //}
     }
 
     /// <summary>
@@ -193,6 +150,29 @@ public class MainCharacterManager : MonoBehaviour
             changePowerBar(GameInfo.currentPower);
             enoughPower();
         }
+    }
+
+    /// <summary>
+    /// Handles the melee attacks
+    /// does the animation and handles what happens to the object
+    /// </summary>
+    void MeleeAttack()
+    {
+        anim.SetTrigger("Melee");
+        MeleePos = transform.Find("MeleePostion");
+        Collider2D[] hitEnimies = Physics2D.OverlapCircleAll(MeleePos.position,1f);
+        foreach( Collider2D enemy in hitEnimies)
+        {
+            if (enemy.gameObject.CompareTag("Enemy"))
+            {
+                enemy.GetComponent<Zombie_1Ctrl>().TakeDamage();
+            }
+        }
+
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(MeleePos.position, 1f);
     }
 
 

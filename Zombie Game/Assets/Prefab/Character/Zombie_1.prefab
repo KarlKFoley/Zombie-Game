@@ -47,8 +47,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.052069, y: 0}
-  - {x: 0.8680489, y: 0}
+  - {x: -0.80127144, y: 0}
+  - {x: 0.60405123, y: -0.013199806}
 --- !u!1 &8029535947504528441
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1491422, y: -0.1472187}
+  m_Offset: {x: 0.08974281, y: -0.1472187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -236,7 +236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8035394, y: 3.4255624}
+  m_Size: {x: 1.3943434, y: 3.4255624}
   m_EdgeRadius: 0
 --- !u!50 &1191462914298487976
 Rigidbody2D:
@@ -274,5 +274,6 @@ MonoBehaviour:
   speedX: 2
   leftEdge: {fileID: 0}
   rightEdge: {fileID: 0}
-  zombieSeachArea: {fileID: 0}
+  dead: 0
+  playerSpotted: 0
   gameObject: {fileID: 8213157702574502486}

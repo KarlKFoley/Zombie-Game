@@ -27,6 +27,7 @@ public class Zombie_1Ctrl : MonoBehaviour
     private Animator anim;
     private Collider2D Coll;
     public new GameObject gameObject;
+    private int hp;
 
 
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class Zombie_1Ctrl : MonoBehaviour
         Coll = GetComponent<Collider2D>();
         attackDelay = 2;
         deathDelay = 2;
+        hp = 2;
         dead = false;
         playerSpotted = false;
         SetStartingDirection();
@@ -167,7 +169,7 @@ public class Zombie_1Ctrl : MonoBehaviour
                 if (!dead) // Stops zombie from killing player during death.
                 {
                     attack();
-                    PushBack(collision);
+                    PushBack();
                     GameCtrl.instance.CheckShields(false, this.gameObject);
                 }
                 break;
@@ -251,9 +253,9 @@ public class Zombie_1Ctrl : MonoBehaviour
     /// When player comes into contact with the zombie the zombie is pused back by the players shield
     /// </summary>
     /// <param name="objects"></param>
-    void PushBack(Collision2D objects)
+    void PushBack()
     {
-        Vector2 dir = objects.gameObject.transform.position - transform.position;
+        Vector2 dir = MainCharacterManager.instance.gameObject.transform.position - transform.position;
         Debug.Log(dir);
         if (dir.x > 0f)
         {
@@ -265,5 +267,18 @@ public class Zombie_1Ctrl : MonoBehaviour
             dir.x = 5000;
         }
             rb.AddForce(dir);
+    }
+
+    public void TakeDamage()
+    {
+        hp--;
+        if (hp <= 0)
+        {
+            ZombieDeath();
+        }
+        else
+        {
+            PushBack();
+        }
     }
 }
