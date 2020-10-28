@@ -15,7 +15,7 @@ using UnityEngine;
 /// </summary>
 public class MainCharacterManager : MonoBehaviour
 {
-
+    public static MainCharacterManager instance;
     public float speedX;
     public float jumpSpeedY;
     public GameObject leftBullet, rightBullet;
@@ -32,6 +32,14 @@ public class MainCharacterManager : MonoBehaviour
     private const int ShootingPower = 2;
     private const int RespawnPower = 5;
     private const int OrbPower = 5;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

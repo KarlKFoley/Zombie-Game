@@ -22,9 +22,9 @@ public class GameCtrl : MonoBehaviour
 
 
     //Variable Declaracation for private variables
-    private const float startingTime = 120;
-    private const int StartingShields = 4;
-    private float timeLeft;
+    public float startingTime;
+    public int StartingShields;
+    public float timeLeft;
     private void Awake()
     {
         if (instance == null)

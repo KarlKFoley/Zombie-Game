@@ -48,8 +48,11 @@ public class Zombie_1Ctrl : MonoBehaviour
     void Update()
     {
         //used to check which way the zombie is moving
-        Move();
-        FlipOnEdge(0);
+        if (!dead)
+        {
+            Move();
+            FlipOnEdge(0);
+        }
     }
 
     /// <summary>
@@ -64,6 +67,10 @@ public class Zombie_1Ctrl : MonoBehaviour
         {
             anim.SetInteger("state", 1); // setting off animation of walking
         }
+        else
+        {
+            anim.SetInteger("state", 0);
+        }
     }
 
     /// <summary>
@@ -77,7 +84,7 @@ public class Zombie_1Ctrl : MonoBehaviour
         {
             if (srFacingRight.flipX && transform.position.x >= rightEdge.position.x || playerSpotted && playerDirection > 0 && srFacingRight.flipX)
             {
-
+                Debug.Log("0");
                 srFacingRight.flipX = false;
                 speedX = -speedX;
                 if (playerSpotted)
@@ -87,7 +94,7 @@ public class Zombie_1Ctrl : MonoBehaviour
             }
             else if (!srFacingRight.flipX && transform.position.x <= leftEdge.position.x || playerSpotted && playerDirection < 0 && !srFacingRight.flipX)
             {
-                Debug.Log(playerSpotted);
+                Debug.Log("1");
                 srFacingRight.flipX = true;
                 speedX = -speedX;
                 if (playerSpotted)
@@ -99,31 +106,36 @@ public class Zombie_1Ctrl : MonoBehaviour
         }
         else
         {
-            //Vector2 temp = transform.position;
-            //temp.x = temp.x - GameObject.FindGameObjectsWithTag("Player").[0].transfor;
-            //playerDirection = temp.x;
-            if ( playerDirection > 0 && srFacingRight.flipX)
+            Vector2 temp = transform.position;
+            temp.x = temp.x - MainCharacterManager.instance.gameObject.transform.position.x;
+            playerDirection = temp.x;
+
+            if ( playerDirection > 0 && srFacingRight.flipX && temp.x > .1)
             {
 
                 srFacingRight.flipX = false;
-                speedX = -speedX;
-                if (playerSpotted)
+                if (speedX == 0)
                 {
-                    playerSpotted = false;
-                }
-            }
-            else if (playerDirection < 0 && !srFacingRight.flipX)
-            {
-                Debug.Log(playerSpotted);
-                Debug.Log(playerDirection);
-                Debug.Log(srFacingRight.flipX);
-                srFacingRight.flipX = true;
-                speedX = -speedX;
-                if (playerSpotted)
-                {
-                    playerSpotted = false;
+                    speedX = 2;
                 }
 
+                speedX = -speedX;
+                Move();
+
+            }
+            else if (playerDirection < 0 && !srFacingRight.flipX && temp.x < -.1)
+            {
+                srFacingRight.flipX = true;
+                if (speedX == 0)
+                {
+                    speedX = -2;
+                }
+                speedX = -speedX;
+
+            }
+            else if(temp.x>-.1 && temp.x<.1)
+            {
+                speedX = 0;
             }
         }
     }

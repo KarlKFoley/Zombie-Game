@@ -16,7 +16,6 @@ public class PlayerSpotted : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(zombie.playerSpotted);
             switch (collision.gameObject.tag)
             {
                 case "Player":

@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 875169389030637653}
   - component: {fileID: 875169389030637652}
   - component: {fileID: 875169389030637655}
+  - component: {fileID: 8272607296948783180}
   m_Layer: 13
-  m_Name: Civilian_1
+  m_Name: Civilian
   m_TagString: Civilian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875169389030637654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.733461, y: 1.1931937, z: 103.96462}
-  m_LocalScale: {x: -2, y: 2, z: 1}
+  m_LocalPosition: {x: -25.8937, y: 0.9363, z: 103.96462}
+  m_LocalScale: {x: -1.4746636, y: 1.5608277, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,3 +122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e30accd2fbf946b4cf52e1369de2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8272607296948783180
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875169389030637654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2b78b171940334449c72d4f1b6ab243, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
