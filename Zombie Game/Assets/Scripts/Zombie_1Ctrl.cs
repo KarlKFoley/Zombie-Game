@@ -84,7 +84,6 @@ public class Zombie_1Ctrl : MonoBehaviour
         {
             if (srFacingRight.flipX && transform.position.x >= rightEdge.position.x || playerSpotted && playerDirection > 0 && srFacingRight.flipX)
             {
-                Debug.Log("0");
                 srFacingRight.flipX = false;
                 speedX = -speedX;
                 if (playerSpotted)
@@ -94,7 +93,6 @@ public class Zombie_1Ctrl : MonoBehaviour
             }
             else if (!srFacingRight.flipX && transform.position.x <= leftEdge.position.x || playerSpotted && playerDirection < 0 && !srFacingRight.flipX)
             {
-                Debug.Log("1");
                 srFacingRight.flipX = true;
                 speedX = -speedX;
                 if (playerSpotted)

@@ -25,6 +25,9 @@ public class GameCtrl : MonoBehaviour
     public float startingTime;
     public int StartingShields;
     public float timeLeft;
+    public int zombiesInLevel;
+    public int civiliansInLevel;
+    public string LevelName;
     private void Awake()
     {
         if (instance == null)
@@ -186,7 +189,7 @@ public class GameCtrl : MonoBehaviour
     /// </summary>
     void Respawn()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(LevelName);
     }
 
 

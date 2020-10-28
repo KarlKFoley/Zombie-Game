@@ -275,6 +275,7 @@ public class MainCharacterManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.tag);
         switch (collision.gameObject.tag)
         {
             case "Orb":
