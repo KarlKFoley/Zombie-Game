@@ -19,32 +19,47 @@ public class GameCtrl : MonoBehaviour
     public static GameCtrl instance;
     public float delayRespawn;
     public UI ui;
-
-
-    //Variable Declaracation for private variables
     public float startingTime;
     public int StartingShields;
     public float timeLeft;
     public int zombiesInLevel;
     public int civiliansInLevel;
+    public int zombiesLeftInLevel;
+    public int civiliansLeftInLevel;
     public string LevelName;
+    public bool zombiesTriggered;
+    public SpawnZombies zombieTrigger;
+    private float zombieNoiseTimer;
+    private float civilianNoiseTimer;
+    private float zombieNoiseTimerWait;
+    private float civilianNoiseTimerWait;
+    public int levelID;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            zombiesTriggered = false;
             ResumeGame();
             timeLeft = startingTime;
             startGameVariables();
+            zombieNoiseTimer = 0;
+            civilianNoiseTimer = 0;
+            zombieNoiseTimerWait = 0;
+            civilianNoiseTimerWait = 0;
+            zombiesLeftInLevel = zombiesInLevel;
+            civiliansLeftInLevel = civiliansInLevel;
+            delayRespawn = 2;
+            OverAllGameInfo.CurrentLevel = levelID;  
         }
     }
 
     private void Update()
     {
-        if(timeLeft > 0)
-        {
-            UpdateTimer();
-        }
+
+        UpdateTimer();
+        UpdateSoundTimer();
     }
 
     /// <summary>
@@ -53,6 +68,7 @@ public class GameCtrl : MonoBehaviour
     /// <param name="Value"></param>
     public void UpdateCiviliansRescued()
     {
+        civiliansLeftInLevel--;
         GameInfo.CivilianCount += 1;
         ui.Civilians_rescued.text = " x " + GameInfo.CivilianCount;
     }
@@ -64,6 +80,7 @@ public class GameCtrl : MonoBehaviour
     /// <param name="Value"></param>
     public void UpdateKills(int Value)
     {
+        zombiesLeftInLevel--;
         GameInfo.KillsBonus += Value;
         ui.Kill_Bonus.text = "Kills Bonus:  " + (int)GameInfo.KillsBonus;
     }
@@ -78,7 +95,7 @@ public class GameCtrl : MonoBehaviour
     public void PlayerFellToDeath(GameObject player)
     {
         player.SetActive(false);
-        CheckShields(true, player);
+        CheckShields(true, player, 0);
     }
 
     /// <summary>
@@ -90,11 +107,49 @@ public class GameCtrl : MonoBehaviour
     void UpdateTimer()
     {
         timeLeft -= Time.deltaTime;
-        ui.Timer.text = "Timer: " + (int)timeLeft;
+        if (timeLeft > 0)
+        {
+            ui.Timer.text = "Timer: " + (int)timeLeft;
+        }
 
         if(timeLeft <= 0)
         {
             ui.Timer.text = "Timer: 0";
+            if (!zombiesTriggered)
+            {
+                zombiesTriggered = true;
+                StartCoroutine(zombieTrigger.ZombieWave());
+            }
+        }
+    }
+
+    void UpdateSoundTimer()
+    {
+        zombieNoiseTimer += Time.deltaTime;
+        civilianNoiseTimer += Time.deltaTime;
+        zombieNoiseTimerWait -= Time.deltaTime;
+        civilianNoiseTimerWait -= Time.deltaTime;
+        if (Mathf.Floor(zombieNoiseTimer) % 3 == 0 && zombieNoiseTimerWait <= 0)
+        {
+            zombieNoiseTimerWait = 3f;
+            GameObject[] zombies;
+            zombies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach( GameObject zombie in zombies)
+            {
+                AudioCtrl.instance.ZombieSound(zombie.transform.position);
+            }
+
+        }
+        if (Mathf.Floor(civilianNoiseTimer) % 5 == 0 && civilianNoiseTimerWait <= 0)
+        {
+            civilianNoiseTimerWait = 5f;
+            GameObject[] Civilians;
+            Civilians = GameObject.FindGameObjectsWithTag("Civilian");
+            foreach (GameObject Civilian in Civilians)
+            {
+                AudioCtrl.instance.CivilianHelp(Civilian.transform.position);
+            }
+
         }
     }
 
@@ -120,9 +175,12 @@ public class GameCtrl : MonoBehaviour
                 ui.shield3.color = new Color32(0, 0, 0, 150);
                 break;
             case 2:
+                ui.shield3.color = new Color32(0, 0, 0, 150);
                 ui.shield2.color = new Color32(0, 0, 0, 150);
                 break;
             case 1:
+                ui.shield3.color = new Color32(0, 0, 0, 150);
+                ui.shield2.color = new Color32(0, 0, 0, 150);
                 ui.shield1.color = new Color32(0, 0, 0, 150);
                 break;
             case 0:
@@ -136,6 +194,7 @@ public class GameCtrl : MonoBehaviour
             default: 
                 break;
         }
+        AudioCtrl.instance.ShieldDamage(MainCharacterManager.instance.transform.position);
     }
 
     /// <summary>
@@ -144,19 +203,21 @@ public class GameCtrl : MonoBehaviour
     /// </summary>
     /// <param name="Death"></param>
     /// <param name="player"></param>
-     public void CheckShields(bool Death, GameObject player)
+     public void CheckShields(bool Death, GameObject player, int damage)
     {
-        GameInfo.shields -= 1;
+        GameInfo.shields -= damage;
         UpdateShields();
-        //player.enoughPower();
 
         if (GameInfo.shields == -1)
         {
+            player.gameObject.layer = LayerMask.NameToLayer("Dead");
             playerDied(player);
-            Invoke("GameOver", delayRespawn);
+            Invoke("Respawn", delayRespawn);
         }
         else if(Death)
         {
+            player.gameObject.layer = LayerMask.NameToLayer("Dead");
+            playerDied(player);
             Invoke("Respawn", delayRespawn);
         }
     }
@@ -169,8 +230,7 @@ public class GameCtrl : MonoBehaviour
     /// <param name="player"></param>
     void playerDied(GameObject player)
     {
-       Animator anim =  player.GetComponent<Animator>();
-        anim.SetInteger("state", 4);
+        MainCharacterManager.instance.Death();
         GameInfo.dead = true;
     }
 
@@ -219,15 +279,20 @@ public class GameCtrl : MonoBehaviour
 
     public void LevelComplete()
     {
-        if (GameInfo.CivilianCount == 3)
+        GameInfo.PercentageSaved = (10 - zombiesLeftInLevel - civiliansLeftInLevel) * 10;
+        OverAllGameInfo.TotalScore += GameInfo.KillsBonus;
+        string sceneName = "";
+        if (OverAllGameInfo.CurrentLevel!=2)
         {
-            string sceneName = "Level_Complete";
-            SceneManager.LoadScene(sceneName);
+            sceneName = "Level_Complete";
         }
         else
         {
-            GameOver();
+            sceneName = "Game_Complete";
         }
+
+        SceneManager.LoadScene(sceneName);
+
     }
 
     /// <summary>
@@ -248,6 +313,11 @@ public class GameCtrl : MonoBehaviour
     public int GetCivilianCount()
     {
         return GameInfo.CivilianCount;
+    }
+
+    public int GetPercentageSaved()
+    {
+        return GameInfo.PercentageSaved;
     }
 
     public float GetTimeLeft()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6800664778208085334}
   - component: {fileID: -316269490553493736}
   - component: {fileID: 7754414363724161191}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Civilian
   m_TagString: Civilian
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -75487899
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2908604961916998731, guid: 631b5941f7cea8040b82751e74621c86,
     type: 3}

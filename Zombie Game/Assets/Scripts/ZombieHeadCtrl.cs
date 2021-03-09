@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ZombieHeadCtrl : MonoBehaviour
 {
-    Zombie_1Ctrl Zombie;
+    Zombie Zombie;
     // Start is called before the first frame update
     void Start()
     {
-        Zombie = gameObject.transform.parent.gameObject.GetComponent<Zombie_1Ctrl>();
+        Zombie = gameObject.transform.parent.gameObject.GetComponent<Zombie>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

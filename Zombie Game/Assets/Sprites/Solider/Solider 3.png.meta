@@ -1,0 +1,980 @@
+fileFormatVersion: 2
+guid: c1afc2b4e60531746ab3909b03603645
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6268057326465134203
+    second: Solider 3_0
+  - first:
+      213: 2743388418280698645
+    second: Solider 3_1
+  - first:
+      213: -1887593126878100792
+    second: Solider 3_2
+  - first:
+      213: -8416686006739614685
+    second: Solider 3_3
+  - first:
+      213: -6400137059015786849
+    second: Solider 3_4
+  - first:
+      213: -3494980431948071872
+    second: Solider 3_5
+  - first:
+      213: -6408288879603210178
+    second: Solider 3_6
+  - first:
+      213: -762251588791565430
+    second: Solider 3_7
+  - first:
+      213: 6053574913643403041
+    second: Solider 3_8
+  - first:
+      213: -8745558547709928050
+    second: Solider 3_9
+  - first:
+      213: -7348227188891854305
+    second: Solider 3_10
+  - first:
+      213: 6783636317062308688
+    second: Solider 3_11
+  - first:
+      213: 163710118815232861
+    second: Solider 3_12
+  - first:
+      213: -1638794043723853883
+    second: Solider 3_13
+  - first:
+      213: -43402546210172371
+    second: Solider 3_14
+  - first:
+      213: -5784111793100153047
+    second: Solider 3_15
+  - first:
+      213: 102407491386661136
+    second: Solider 3_16
+  - first:
+      213: -5476171589013628455
+    second: Solider 3_17
+  - first:
+      213: 5865088794509653021
+    second: Solider 3_18
+  - first:
+      213: -8316696632871450846
+    second: Solider 3_19
+  - first:
+      213: 4736930288098022176
+    second: Solider 3_20
+  - first:
+      213: -1019288184161708772
+    second: Solider 3_21
+  - first:
+      213: -5286390558203171563
+    second: Solider 3_22
+  - first:
+      213: -4873812398496736904
+    second: Solider 3_23
+  - first:
+      213: -8481500824631703735
+    second: Solider 3_24
+  - first:
+      213: -799721291097465359
+    second: Solider 3_25
+  - first:
+      213: 2431300146528152243
+    second: Solider 3_26
+  - first:
+      213: 21153755134031861
+    second: Solider 3_27
+  - first:
+      213: 6272739539070868420
+    second: Solider 3_28
+  - first:
+      213: -1352488890535001790
+    second: Solider 3_29
+  - first:
+      213: 5475115611684085660
+    second: Solider 3_30
+  - first:
+      213: -7557159238500556149
+    second: Solider 3_31
+  - first:
+      213: -8327304066438875306
+    second: Solider 3_32
+  - first:
+      213: -2396060445737312501
+    second: Solider 3_33
+  - first:
+      213: -8902756268440894083
+    second: Solider 3_34
+  - first:
+      213: -417988314850004526
+    second: Solider 3_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Solider 3_0
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1850
+        width: 234
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e2db7cdec9cf650800000000000000
+      internalID: 6268057326465134203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_1
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1835
+        width: 244
+        height: 335
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513ba883b39721620800000000000000
+      internalID: 2743388418280698645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_2
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1845
+        width: 256
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c246ff4d0cedc5e0800000000000000
+      internalID: -1887593126878100792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_3
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 1855
+        width: 261
+        height: 385
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324c84e9bace13b80800000000000000
+      internalID: -8416686006739614685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_4
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 1850
+        width: 261
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9efc8311452e27a0800000000000000
+      internalID: -6400137059015786849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_5
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 500
+        width: 1101
+        height: 1745
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c3bc870d55f7fc0800000000000000
+      internalID: -3494980431948071872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_6
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 1430
+        width: 259
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e382a21773f2117a0800000000000000
+      internalID: -6408288879603210178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_7
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1430
+        width: 249
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a830a94f730fb65f0800000000000000
+      internalID: -762251588791565430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_8
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 1430
+        width: 244
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1275eec8f4e920450800000000000000
+      internalID: 6053574913643403041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_9
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 1430
+        width: 254
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d5e5936d881a680800000000000000
+      internalID: -8745558547709928050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_10
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1430
+        width: 260
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1adb35ed4ad50a90800000000000000
+      internalID: -7348227188891854305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_11
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 995
+        width: 278
+        height: 375
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05320f30a41542e50800000000000000
+      internalID: 6783636317062308688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_12
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 995
+        width: 326
+        height: 325
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d537e165c7d954200800000000000000
+      internalID: 163710118815232861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_13
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 990
+        width: 366
+        height: 300
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf40dbff75d149e0800000000000000
+      internalID: -1638794043723853883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_14
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 995
+        width: 346
+        height: 250
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d229bca3d9dc56ff0800000000000000
+      internalID: -43402546210172371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_15
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 995
+        width: 366
+        height: 244
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f1e1f38f4babfa0800000000000000
+      internalID: -5784111793100153047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_16
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 515
+        width: 251
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019d0722213db6100800000000000000
+      internalID: 102407491386661136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_17
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 515
+        width: 261
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d991cb24fab004b0800000000000000
+      internalID: -5476171589013628455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 515
+        width: 241
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d143fdc1f2bf46150800000000000000
+      internalID: 5865088794509653021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_19
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 515
+        width: 251
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2278205e978259c80800000000000000
+      internalID: -8316696632871450846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_20
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 515
+        width: 261
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0231fdbeff4fcb140800000000000000
+      internalID: 4736930288098022176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_21
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 515
+        width: 261
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15d9430cc2cad1f0800000000000000
+      internalID: -1019288184161708772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_22
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 520
+        width: 251
+        height: 390
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d225abbc7f2a6b0800000000000000
+      internalID: -5286390558203171563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_23
+      rect:
+        serializedVersion: 2
+        x: 2980
+        y: 515
+        width: 255
+        height: 395
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87915b5327dbc5cb0800000000000000
+      internalID: -4873812398496736904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_24
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 101
+        width: 276
+        height: 364
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94705a9dfe7ab4a80800000000000000
+      internalID: -8481500824631703735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_25
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 101
+        width: 256
+        height: 364
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd91dc09b1d6e4f0800000000000000
+      internalID: -799721291097465359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_26
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 96
+        width: 246
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba6a280a96bdb120800000000000000
+      internalID: 2431300146528152243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_27
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 101
+        width: 246
+        height: 364
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7fd6c6a372b4000800000000000000
+      internalID: 21153755134031861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_28
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 96
+        width: 247
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbddda506f3d0750800000000000000
+      internalID: 6272739539070868420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_29
+      rect:
+        serializedVersion: 2
+        x: 2165
+        y: 96
+        width: 256
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241cff4158efa3de0800000000000000
+      internalID: -1352488890535001790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_30
+      rect:
+        serializedVersion: 2
+        x: 2579
+        y: 101
+        width: 271
+        height: 364
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f10a2f3a48bfb40800000000000000
+      internalID: 5475115611684085660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_31
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 96
+        width: 261
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82ec1e46b39f1790800000000000000
+      internalID: -7557159238500556149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_32
+      rect:
+        serializedVersion: 2
+        x: 3434
+        y: 96
+        width: 236
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657be3f42197f6c80800000000000000
+      internalID: -8327304066438875306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_33
+      rect:
+        serializedVersion: 2
+        x: 3864
+        y: 96
+        width: 246
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f967f28bb7fbed0800000000000000
+      internalID: -2396060445737312501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_34
+      rect:
+        serializedVersion: 2
+        x: 4264
+        y: 96
+        width: 246
+        height: 369
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75c2b9b75e037480800000000000000
+      internalID: -8902756268440894083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Solider 3_35
+      rect:
+        serializedVersion: 2
+        x: 4689
+        y: 101
+        width: 241
+        height: 364
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1f91d97d1033af0800000000000000
+      internalID: -417988314850004526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

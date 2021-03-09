@@ -14,6 +14,6 @@ public class CameraCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(player.position.x,-0.5f,33f), Mathf.Clamp(player.position.y, 1.9f, 10.15f),-10);
+        transform.position = new Vector3(Mathf.Clamp(player.position.x,-0.5f, 50.4f), Mathf.Clamp(player.position.y, 1.9f, 10.15f),-10);
     }
 }

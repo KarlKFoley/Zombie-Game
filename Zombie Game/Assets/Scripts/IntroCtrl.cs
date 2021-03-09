@@ -72,7 +72,7 @@ public class IntroCtrl : MonoBehaviour
                 StoryText2.SetActive(true);
                 break;
             case 1:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(1);
                 break;
             default:
                 break;

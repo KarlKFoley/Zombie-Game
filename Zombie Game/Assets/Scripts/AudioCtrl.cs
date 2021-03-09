@@ -30,7 +30,7 @@ public class AudioCtrl : MonoBehaviour
     {
         if (soundOn)
         {
-            AudioSource.PlayClipAtPoint(playerAudio.playerjumps,position);
+            AudioSource.PlayClipAtPoint(playerAudio.playerjumps,position, 52f);
         }
     }
     /// <summary>
@@ -56,4 +56,54 @@ public class AudioCtrl : MonoBehaviour
             AudioSource.PlayClipAtPoint(playerAudio.zombieSound, position);
         }
     }
+
+    public void ZombieDiesSound(Vector3 position)
+    {
+        if (soundOn)
+        {
+            AudioSource.PlayClipAtPoint(playerAudio.ZombieDeathSound, position);
+        }
+    }
+
+
+    public void CivilianHelp(Vector3 position)
+    {
+        if (soundOn)
+        {
+            AudioSource.PlayClipAtPoint(playerAudio.CivilianHelpSound, position);
+        }
+    }
+
+    public void CivilianSave(Vector3 position)
+    {
+        if (soundOn)
+        {
+            AudioSource.PlayClipAtPoint(playerAudio.CivilianSaveSound, position);
+        }
+    }
+
+    public void ShieldDamage(Vector3 position)
+    {
+        if (soundOn)
+        {
+            AudioSource.PlayClipAtPoint(playerAudio.ShieldDamageSound, position);
+        }
+    }
+
+    public void robotDies(Vector3 position)
+    {
+        if (soundOn)
+        {
+            AudioSource.PlayClipAtPoint(playerAudio.PlayerDies, position);
+        }
+    }
+
+    public void playerMoves(Vector3 position)
+    {
+        if (soundOn)
+        {
+            AudioSource.PlayClipAtPoint(playerAudio.playerWalks, position, .4f);
+        }
+    }
+
 }

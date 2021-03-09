@@ -15,7 +15,8 @@ public class CivilianCtrl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-                Destroy(gameObject); // Destroy the Civilian
+            AudioCtrl.instance.CivilianSave(this.transform.position);
+            Destroy(gameObject); // Destroy the Civilian
 
         }
     }

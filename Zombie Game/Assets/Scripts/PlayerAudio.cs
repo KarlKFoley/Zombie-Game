@@ -14,6 +14,12 @@ public class PlayerAudio
 {
     public AudioClip playerShoots;
     public AudioClip playerjumps;
-    public AudioClip zombieSound; // current not implemented in game - selected clip to long and not right implementation, caused a white noise effect that caused issues 
+    public AudioClip zombieSound;
+    public AudioClip ZombieDeathSound;
+    public AudioClip CivilianHelpSound;
+    public AudioClip CivilianSaveSound;
+    public AudioClip ShieldDamageSound;
+    public AudioClip PlayerDies;
+    public AudioClip playerWalks;
 }
 

@@ -13,8 +13,8 @@ public static class GameInfo
 {
     public static int CivilianCount;
     public static int KillsBonus;
+    public static int PercentageSaved;
     public static int shields;
     public static int currentPower;
     public static bool dead;
-    public static bool tutorialComplete;
 }

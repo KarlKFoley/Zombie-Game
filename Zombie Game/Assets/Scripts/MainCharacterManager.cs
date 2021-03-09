@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class handles how the main character is played
@@ -33,6 +34,16 @@ public class MainCharacterManager : MonoBehaviour
     private const int ShootingPower = 2;
     private const int RespawnPower = 5;
     private const int OrbPower = 5;
+    private float attackTimer;
+    private bool ableToMeleeAttack;
+    private float walktimer;
+    private float rechargeTimer;
+    private float rechargeBlocker;
+    public GameObject WarningMessage;
+    public float WarningMessageTrimer;
+    public GameObject WarningMessageCanvas;
+    public bool WarningActive;
+    public bool WarningFliped;
 
     private void Awake()
     {
@@ -53,23 +64,29 @@ public class MainCharacterManager : MonoBehaviour
         CheckIfCanFire();
         GameInfo.dead = false;
         maxPower = 10;
+        walktimer = 0;
         powerBar.SetUpPower(maxPower, GameInfo.currentPower);
-
+        rechargeTimer = 0;
+        rechargeBlocker = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameInfo.tutorialComplete);
-        //if (GameInfo.tutorialComplete)
-        //{
+        if (!GameInfo.dead)
+        {
             //player Movment
             movePlayer(speed);
             handleJumpAndFall();
-
+            enoughPower();
             //Right player Movement
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             {
+                if (!jumping && walktimer <= 0)
+                {
+                    AudioCtrl.instance.playerMoves(gameObject.transform.position);
+                    walktimer = 1f;
+                }
                 speed = speedX;
             }
 
@@ -82,8 +99,13 @@ public class MainCharacterManager : MonoBehaviour
             }
 
             //Left player Movment
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
+                if (!jumping && walktimer <= 0)
+                {
+                    AudioCtrl.instance.playerMoves(gameObject.transform.position);
+                    walktimer = 1f;
+                }
                 speed = -speedX;
             }
 
@@ -106,7 +128,13 @@ public class MainCharacterManager : MonoBehaviour
             //shooting
             if (Input.GetKeyDown(KeyCode.Space))
             {
-            MeleeAttack();
+                if (ableToMeleeAttack)
+                {
+                    MeleeAttack();
+                    ableToMeleeAttack = false;
+                    attackTimer = .5f;
+                }
+
             }
 
 
@@ -114,17 +142,55 @@ public class MainCharacterManager : MonoBehaviour
             {
 
             }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            fire();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                fire();
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+
+            }
+
+            /// Stops player from spamming the attack key
+            rechargeTimer += Time.deltaTime;
+            walktimer -= Time.deltaTime;
+            attackTimer -= Time.deltaTime;
+            if (attackTimer <= 0)
+            {
+                ableToMeleeAttack = true;
+            }
+            if (Mathf.Floor(rechargeTimer) % 5 == 0 && rechargeBlocker != Mathf.Floor(rechargeTimer))
+            {
+                rechargeEnergy();
+                rechargeBlocker = Mathf.Floor(rechargeTimer);
+            }
+            changePowerBar();
+            if (WarningMessageTrimer <= 5)
+            {
+                if (!facingRight && WarningActive && !WarningFliped)
+                {
+                    Vector3 temp = WarningMessageCanvas.transform.localScale;
+                    temp.x = -temp.x;
+                    WarningMessageCanvas.transform.localScale = temp;
+                    WarningFliped = true;
+                }
+                else if (facingRight && WarningActive && WarningFliped)
+                {
+                    Vector3 temp = WarningMessageCanvas.transform.localScale;
+                    temp.x = -temp.x;
+                    WarningMessageCanvas.transform.localScale = temp;
+                    WarningFliped = false;
+                }
+                WarningMessageTrimer += Time.deltaTime;
+            }
+            else if (WarningMessage.activeSelf && WarningMessageTrimer >= 5)
+            {
+                WarningMessage.gameObject.SetActive(false);
+                WarningFliped = false;
+            }
         }
-
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-
-        }
-        //}
     }
 
     /// <summary>
@@ -147,7 +213,7 @@ public class MainCharacterManager : MonoBehaviour
                 Instantiate(leftBullet, firePos.position, Quaternion.identity);
             }
             GameInfo.currentPower -= ShootingPower;
-            changePowerBar(GameInfo.currentPower);
+            changePowerBar();
             enoughPower();
         }
     }
@@ -155,6 +221,7 @@ public class MainCharacterManager : MonoBehaviour
     /// <summary>
     /// Handles the melee attacks
     /// does the animation and handles what happens to the object
+    ///  base understanding comes from https://www.youtube.com/watch?v=sPiVz1k-fEs
     /// </summary>
     void MeleeAttack()
     {
@@ -165,7 +232,7 @@ public class MainCharacterManager : MonoBehaviour
         {
             if (enemy.gameObject.CompareTag("Enemy"))
             {
-                enemy.GetComponent<Zombie_1Ctrl>().TakeDamage();
+                enemy.GetComponent<Zombie>().TakeDamage();
             }
         }
 
@@ -255,7 +322,6 @@ public class MainCharacterManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
         switch (collision.gameObject.tag)
         {
             case "Orb":
@@ -266,7 +332,15 @@ public class MainCharacterManager : MonoBehaviour
                 GameCtrl.instance.UpdateCiviliansRescued();
                 break;
             case "EndLevel":
-                    GameCtrl.instance.LevelComplete();
+                    
+                break;
+            case "SpawnTrigger":
+                if (!WarningActive)
+                {
+                    WarningMessage.gameObject.SetActive(true);
+                    WarningMessageTrimer = 0;
+                    WarningActive = true;
+                }
                 break;
             default:
                 break;
@@ -301,8 +375,14 @@ public class MainCharacterManager : MonoBehaviour
 
     public void CollectOrb()
     {
-        GameInfo.currentPower += OrbPower;
-        changePowerBar(GameInfo.currentPower);
+        if ((OrbPower + GameInfo.currentPower) >= 10)
+        {
+            GameInfo.currentPower = 10;
+        }
+        else
+        {
+            GameInfo.currentPower += OrbPower;
+        }
         enoughPower();
     }
 
@@ -312,7 +392,7 @@ public class MainCharacterManager : MonoBehaviour
     /// reference https://www.youtube.com/watch?v=BLfNP4Sc_iA
     /// </summary>
     /// <param name="changePower"></param>
-    private void changePowerBar(int changePower)
+    private void changePowerBar()
     {
         powerBar.SetPower(GameInfo.currentPower);
     }
@@ -355,5 +435,38 @@ public class MainCharacterManager : MonoBehaviour
         }
     }
 
+    void rechargeEnergy()
+    {
+        if (GameInfo.currentPower != 10) {
+            int recharge;
+            if (OverAllGameInfo.recharge < 20)
+            {
+                recharge = 0;
+            } else if (OverAllGameInfo.recharge < 60) {
+                recharge = 1;
+            }
+            else
+            {
+                recharge = 2;
+            }
+            if ((recharge + GameInfo.currentPower) >= 10)
+            {
+                GameInfo.currentPower = 10;
+            }
+            else
+            {
+                GameInfo.currentPower += recharge;
+            }
+        }
+
+
+
+    }
+    public void Death()
+    {
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        AudioCtrl.instance.robotDies(gameObject.transform.position);
+        anim.SetInteger("state", 4);
+    }
 
 }

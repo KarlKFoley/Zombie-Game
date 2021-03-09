@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSpotted : MonoBehaviour
 {
-    public Zombie_1Ctrl zombie;
+    public Zombie zombie;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +21,9 @@ public class PlayerSpotted : MonoBehaviour
                 case "Player":
                     if (!zombie.dead)
                     {
-                        Vector2 temp = transform.position;
-                        temp.x = temp.x - collision.gameObject.transform.position.x;
+                        zombie.playerFound = true;
                         zombie.playerSpotted = true;
-                        zombie.FlipOnEdge(temp.x);
+                        zombie.FlipOnEdge();
                     }
                     break;
             }
